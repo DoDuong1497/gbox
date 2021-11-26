@@ -1,0 +1,154 @@
+.contact-page{
+    .header{
+        &-menu{
+            .wrap{
+                border-bottom: none;
+            }
+        }
+    }
+
+    .main-wrapper{
+        padding: 0;
+        margin: 0;
+    }
+
+    .section{
+        &__contact{
+            padding: 9.6rem 0;
+            background: url('/img/contact-bg.jpg') center center/cover no-repeat;
+        }
+
+        .contact{
+            --mrbt-contact: 6.8rem;
+            margin-bottom: var(--mrbt-contact);
+
+            &-logo{
+                max-width: 10.6rem;
+                line-height: 0;
+                margin: 0 auto 3rem;
+            }
+
+            &-content{
+                display: flex;
+                column-gap: 5.6rem;
+                justify-content: center;
+
+                .text-group{
+                    p{
+                        color: $white-cl;
+                        text-transform: uppercase;
+                        line-height: 3rem;
+                    }
+                }
+
+                &__col{
+                    &:first-child{
+                        .text-group{
+                            max-width: 19rem;
+                            p{
+                                text-align: right;
+                            }
+                        }
+                    }
+
+                    &:last-child{
+                        .text-group{
+                            &:last-child{
+                                margin-top: 5rem;
+
+                                p{
+                                    display: inline-block;
+
+                                    &.title{
+                                        margin-right: 3.2rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .footer{
+        &-wrap{
+            padding-top: 4.5rem;
+        }
+
+        &-item{
+            &:first-child,
+            &:nth-child(3){
+                display: none;
+            }
+        }
+
+        &::after{
+            height: 100%;
+        }
+    }
+}
+
+
+@include xs{
+    .contact-page{
+        .section{
+            &__contact{
+                background: url('/img/contact-bg-mb.jpg') center center/cover no-repeat;
+            }
+
+            .contact{
+                --mrbt-contact: 0;
+                
+                &-logo{
+                    display: none;
+                }
+
+                &-content{
+                    flex-direction: column;
+
+                    .text-group{
+                        p{
+                            text-align: center;
+                        }
+                    }
+
+                    &__col{
+                        &:first-child{
+                            order: 2;
+
+                            .text-group{
+                                max-width: 19rem;
+                                margin: 0 auto;
+                                p{
+                                    text-align: center;
+                                }
+                            }
+                        }
+
+                        &:last-child{
+                            order: 1;
+
+                            .text-group{
+                                &:last-child{
+                                    margin-top: 0;
+                                    text-align: center;
+                                    
+                                    p{
+                                        &.title{
+                                            margin-right: 3.2rem;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .control-button{
+                display: none;
+            }
+        }
+    }
+}
