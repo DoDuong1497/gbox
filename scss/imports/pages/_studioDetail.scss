@@ -1,0 +1,287 @@
+.studioBanner{
+    &__wrap{
+        position: relative;
+        padding-bottom: 5.8rem;
+        margin-bottom: 2.5rem;
+
+        &::after{
+            content: "";
+            width: 100%;
+            height: 1px;
+            display: inline-block;
+            background-color: $black-cl;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+    }
+
+    &-top{
+        justify-content: flex-end;
+        margin-bottom: 2.5rem;
+    }
+
+    &-carousel{
+        line-height: 0;
+    }
+
+    &-bottom{
+        --pdY-studioBannerBt: 0 2.5rem;
+        display: flex;
+        justify-content: space-between;
+        padding: var(--pdY-studioBannerBt);
+
+        .studio-content{
+            width: 100%;
+            justify-content: space-between;
+
+            &__info{
+                --pd-info: 2.8rem 0 0 0;
+                width: auto;
+            }
+
+            .function-bar{
+                --pd-info: 2.8rem 0 0 0;
+                align-items: flex-start;
+                column-gap: 5rem;
+                padding: var(--pd-info);
+
+                &__item{
+                    &.download{
+                        width: 13.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+.studioInfo{
+    &-wrap{
+        margin-bottom: 6rem;
+
+        .title{
+            font-size: 3.2rem;
+            font-family: $pe;
+            margin-bottom: 2.2rem;
+        }
+    }
+
+    &-item{
+        display: flex;
+        column-gap: 5.8rem;
+
+        .item{
+            width: 50%;
+        }
+
+        &.pricing{
+            margin-bottom: 6rem;
+
+            .item{
+                &:last-child{
+                    .title{
+                        margin-bottom: 10.2rem;
+                    }
+
+                    .floorplan-image{
+                        line-height: 0;
+                    }
+                }
+
+                .des{
+                    font-size: 1.4rem;
+                    margin-bottom: 3rem;
+                }
+
+                .price-list{
+                    table{
+                        width: 100%;
+        
+                        tr{
+                            td{
+                                width: 50%;
+                                border: 1px solid $black-cl;
+                                padding: 2.6rem 0 1.4rem 0;
+        
+                                &:first-child{
+                                    padding-left: 5.8rem;
+                                    padding-right: 5.8rem;
+                                    border-right: none;
+                                }
+        
+                                &:last-child{
+                                    padding-left: 1.5rem;
+                                    padding-right: 1.5rem;
+                                    text-align: right;
+                                    border-left: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.specs{
+            .item{
+                p{
+                    margin-bottom: 2.6rem;
+
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.section__studioInfo{
+    .control-button{
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        row-gap: 2rem;
+
+        .btn-more,
+        .book-now{
+            position: static;
+            @include transform(none);
+        }
+
+        .btn-more{
+            order: 1;
+        }
+
+        .book-now{
+            order: 2;
+        }
+    }
+}
+
+
+
+@include sm{
+    .studioBanner{
+        &-bottom{
+            .studio-content{
+                --height-content: 100px;
+
+                .function-bar{
+                    &__item{
+                        &.download{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .studioInfo{
+        &-item{
+            &.pricing{
+                .item{
+                    .price-list{
+                        table{
+            
+                            tr{
+                                td{
+                                    padding: 1.4rem 0 1.4rem 0;
+            
+                                    &:first-child{
+                                        padding-left: 1.4rem;
+                                        padding-right: 1.4rem;
+                                    }
+                                }
+                            }
+                        }
+                    
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@include xs{
+    .studioBanner{
+        &__wrap{
+            padding-bottom: 0;
+            margin-bottom: 3.6rem;
+
+            &::after{
+                display: none;
+            }
+        }
+
+        &-bottom{
+            --pdY-studioBannerBt: 0 0;
+
+            .studio-content{
+                justify-content: normal;
+
+                &__info{
+                    --pd-info: 24px 0 0 30px;
+                }
+
+                .function-bar{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .studioInfo{
+        &-item{
+            flex-direction: column;
+
+            .item{
+                width: 100%;
+                margin-bottom: 3.2rem;
+            }
+
+            &.pricing{
+                margin-bottom: 0;
+
+                .item{
+                    &:last-child{
+                        .title{
+                            margin-bottom: 2.2rem;
+                        }
+                    }
+                }
+            }
+
+            &.specs{
+                .item{
+                    margin-bottom: 2.6rem;
+
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@include xxs{
+    .studioBanner{
+        &-carousel,
+        &-bottom{
+            margin: 0 -10px;
+        }
+    }
+}

@@ -1,0 +1,326 @@
+.rental{
+    &-wrap{
+        display: flex;
+        justify-content: space-between;
+        column-gap: 5rem;
+    }
+
+    &-info{
+        --pd-info: 7rem 0 0 1.8rem;
+        width: calc(((285 / 980) * 100%) - 25px);
+        height: 64rem;
+        background-color: $grey-dark-cl;
+        padding: var(--pd-info);
+
+        &__number{
+            @include size(120px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: $yellow-cl;
+            margin-bottom: 2.6rem;
+
+            .serial{
+                font-family: $db;
+                font-size: 6.1rem;
+                line-height: 1;
+            }
+        }
+
+        &__name{
+            font-family: $pe;
+            font-size: 3.2rem;
+            margin-bottom: 2.6rem;
+        }
+
+        .dimensions{
+            color: $white-cl;
+
+            &-title{
+                font-family: $pl;
+                letter-spacing: 0.2em;
+                line-height: 1;
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+
+    &-register{
+        --width-row: 520px;
+        width: calc(((695 / 980) * 100%) - 25px);
+
+        .title{
+            @include text(2.8rem, $pe, 1, #39382f, none);
+            margin-bottom: 4.4rem;
+        }
+
+        &__row{
+            display: flex;
+            column-gap: 7.5rem;
+            width: var(--width-row);
+
+
+            .col{
+                --width-col: 50%;
+                width: var(--width-col);
+            }
+        }
+
+        &__wrap{
+            .input-group{
+                margin-bottom: 2.4rem;
+            }
+
+            label{
+                display: block;
+            }
+
+            input,
+            textarea{
+                width: 100%;
+
+                &:focus{
+                    outline: 0;
+                }
+            }
+
+            input{
+                border: none;
+                outline: 0;
+                border-bottom: 1px solid #171717;
+            }
+
+            textarea{
+                resize: none;
+                padding: 10px;
+                border: 1px solid #171717;
+                margin-top: 2rem;
+            }
+
+            .note{
+                font-style: italic;
+            }
+        }
+
+        &__booking{
+            .rental-register__wrap{
+                input{
+                    padding: 10px;
+                    border: 1px solid #171717;
+
+                    &:focus{
+                        box-shadow: none;
+                    }
+
+                    &.date{
+                        padding: 0 10px;
+                        width: 100%;
+                        height: 35px;
+                        position: relative;
+                        
+                        &::-webkit-datetime-edit{
+                            font-style: italic;
+                        }
+
+                        &::before{
+                            --sz-icCalendar: 28px;
+                            content: '';
+                            height: var(--sz-icCalendar);
+                            width: var(--sz-icCalendar);
+                            position: absolute;
+                            right: 0;
+                            display: block;
+                            z-index: 1;
+                            background: url('/img/icon-calendar.svg') center center/cover no-repeat #fff;
+                        }
+
+                        &::-webkit-inner-spin-button,
+                        &::-webkit-calendar-picker-indicator {
+                            display: none;
+                            -webkit-appearance: none;
+                        }
+                    }
+
+                    &#projectReference,
+                    &#comment{
+                        width: var(--width-row);
+                    }
+                }
+
+                .bookingDate{
+                    .rental-register__row{
+                        position: relative;
+
+                        &::before{
+                            content: "";
+                            @include size(15px, 10px);
+                            background-image: url('/img/icon-down.svg');
+                            background-repeat: no-repeat;
+                            background-size: 100%;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            @include transform(translate(-50%, -50%) rotate(-90deg));
+                        }
+                    }
+                }
+            }
+            
+            .studio-select{
+                margin-bottom: 2.4rem;
+
+                p{
+                    margin-bottom: 2rem;
+                }
+
+                &__wrap{
+                    display: flex;
+                    column-gap: 2rem
+                }
+
+                &__item{
+                    @include size(4rem);
+                    @include text(2.4rem, $db, 3.6rem, #b4b4b4, none);
+                    text-align: center;
+                    background-color: $black-cl;
+                    display: inline-block;
+                    // margin-right: 2rem;
+                    border: 2px solid #464646;
+                    @include transition($t);
+
+                    &:hover,
+                    &.active{
+                        color: $black-cl;
+                        background-color: $yellow-cl;
+                    }
+
+                    // &:last-child{
+                    //     margin-right: 0;
+                    // }
+                }
+            }
+        }
+
+        .control-button{
+            height: 100px;
+            margin-top: 6.8rem;
+
+            .sub-title{
+                order: 2;
+                max-width: 19rem;
+            }
+
+            .btn-book{
+                order: 1;
+                
+                span{
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+@include sm{
+    .rental{
+        &-register{
+            --width-row: 100%;
+        }
+    }
+}
+
+
+@include xs{
+    .rental{
+        &-wrap{
+            flex-direction: column;
+        }
+
+        &-info{
+            --pd-info: 0;
+            @include size(100%, auto);
+            display: flex;
+            background-color: transparent;
+            margin-bottom: 4rem;
+
+            &__number{
+                @include size(105px);
+                margin-bottom: 0;
+            }
+
+            &__content{
+                h2,
+                .dimensions{
+                    color: $black-cl;
+                }
+            }
+
+            &__name{
+                margin-bottom: 1.8rem;
+            }
+
+            &__content{
+                padding: 0 0 0 2.5rem;
+            }
+
+            .dimensions{
+    
+                &-title{
+                    margin-bottom: 7px;
+                }
+
+                &-text{
+                    p{
+                        line-height: 1.5;
+                    }
+                }
+            }
+        }
+
+        &-register{
+            --width-row: 100%;
+            width: 100%;
+        }
+    }
+}
+
+
+@include xxs{
+    .rental{
+        &-register{
+            &__row{
+                flex-direction: column;
+    
+                .col{
+                    --width-col: 100%;
+                }
+            }
+
+
+            &__booking{
+                .rental-register__wrap{
+                    .bookingDate{
+                        .rental-register__row{
+                            input{
+                                margin-bottom: 4rem;
+                                background: transparent;
+
+                                &#toDate{
+                                    margin-bottom: 0;
+                                }
+                            }
+
+                            &::before{
+                                @include transform(rotate(0));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

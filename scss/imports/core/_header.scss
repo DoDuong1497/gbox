@@ -1,0 +1,142 @@
+.header{
+    [class^="header-"]{
+        height: calc(var(--height-header) / 2);
+        .wrap,
+        .container{
+            height: 100%;
+            position: relative;
+        }
+    }
+
+    &-top{
+        z-index: 3;
+        background-color: $grey-dark-cl;
+
+        .icon{
+            display: inline-block;
+            line-height: 0;
+            position: absolute;
+            top: 50%;
+
+            &.logo{
+                --size-logo: 45px;
+                @include size(var(--size-logo));
+            }
+
+            &.social{
+                width: 20px;
+            }
+
+            &.--center{
+                left: 50%;
+                @include transform(translate(-50%, -50%));
+            }
+
+            &.--right{
+                right: 0;
+                @include transform(translateY(-50%));
+            }
+        }
+    }
+}
+
+
+.btn-menu{
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+
+@include xs{
+    .header{
+        &-top{
+            .icon{
+                &.logo{
+                    --size-logo: 38px;
+                }
+            }
+
+            &.fixed{
+                width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                @include animation(fadeInDown $t);
+            }
+        }
+    }
+
+    .btn-menu{
+        --height-btnMenu: 18px;
+        opacity: 1;
+        pointer-events: auto;
+        @include size(24px, var(--height-btnMenu));
+        position: absolute;
+        left: calc(var(--gap) / 2);
+        top: calc(((var(--height-header) / 2) - var(--height-btnMenu)) / 2);
+        z-index: 5;
+
+        &.fixed{
+            position: fixed;
+            @include animation(fadeInDown $t);
+        }
+    
+        span{
+            display: block;
+            @include size(100%, 2px);
+            background-color: $yellow-cl;
+            position: absolute;
+            left: 0;
+            @include transform(rotate(0deg));
+            @include transition(.25s ease-in-out);
+    
+            &:first-child{
+                top: 0;
+            }
+    
+            &:nth-child(2){
+                top: 8px;
+            }
+    
+            &:last-child{
+                top: 16px;
+            }
+        }
+
+        &.active{
+            span{
+                background-color: $black-cl;
+
+                &:first-child{
+                    top: 8px;
+                    @include transform(rotate(135deg));
+                }
+        
+                &:nth-child(2){
+                    opacity: 0;
+                    left: -24px;
+                }
+        
+                &:last-child{
+                    top: 8px;
+                    @include transform(rotate(-135deg));
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes fadeInDown {
+    from{
+        @include transform(translateY(-100%));
+    }
+
+    to{
+        @include transform(translateY(0));
+    }
+}
+
+

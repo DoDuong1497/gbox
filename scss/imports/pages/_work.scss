@@ -1,0 +1,40 @@
+.work-page{
+    .control-button{
+        height: 100px;
+        .book-now{
+            .sub-title{
+                text-align: right;
+            }
+        }
+    }
+}
+
+
+@include xs{
+    .work-page{
+        .control-button{
+            height: auto;
+            @include mid(true);
+            flex-direction: column;
+    
+            .btn-more,
+            .book-now{
+                position: static;
+                @include transform(none);
+            }
+    
+            .btn-more{
+                order: 2;
+            }
+    
+            .book-now{
+                order: 1;
+                flex-direction: column;
+                margin-bottom: 6rem;
+                .sub-title{
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
