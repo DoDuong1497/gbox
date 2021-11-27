@@ -111,3 +111,43 @@ if(btnBackPage !== null){
 }
 
 // END BACK TO ALL
+
+
+
+$(document).ready(function () {
+    $('.studioBanner-carousel').flickity({
+        cellAlign: 'left',
+        contain: true,
+        prevNextButtons: false,
+        pageDots: false,
+        autoPlay: true,
+        wrapAround: true
+    });
+
+    var $carousel = $('.studioBanner-carousel').flickity();
+
+    $('.function-bar__item .prev').on( 'click', function() {
+        $carousel.flickity('previous');
+    });
+    
+    $('.function-bar__item .next').on( 'click', function() {
+        $carousel.flickity('next');
+    });
+
+    $('.function-bar .fullscreen').on( 'click', function() {
+        $carousel.flickity('viewFullscreen');
+    });
+
+    $('.studioBanner-carousel__item .close').on( 'click', function() {
+        $carousel.flickity('exitFullscreen');
+    });
+
+    $('.project-detail__avatar').flickity({
+        cellAlign: 'left',
+        contain: true,
+        prevNextButtons: false,
+        pageDots: false,
+        autoPlay: true,
+        wrapAround: true
+    });
+})

@@ -22,7 +22,53 @@
     }
 
     &-carousel{
-        line-height: 0;
+        &__item{
+            @include size(100%, 500px);
+            line-height: 0;
+            position: relative;
+
+            img{
+                max-width: 100%;
+                max-height: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .close{
+                opacity: 0;
+                display: inline-block;
+                @include size(25px);
+                line-height: 25px;
+                text-align: center;
+                font-size: 32px;
+                color: $yellow-cl;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                pointer-events: none;
+                cursor: pointer;
+                border-radius: 5px;
+                // background-color: $grey-cl;
+                border: 1px solid $yellow-cl;
+            }
+        }
+
+        &.is-fullscreen{
+            .studioBanner-carousel__item{
+                height: 100%;
+                @include mid(true);
+
+                img{
+                    height: auto;
+                    max-height: 100%;
+                }
+
+                .close{
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+            }
+        }
     }
 
     &-bottom{
