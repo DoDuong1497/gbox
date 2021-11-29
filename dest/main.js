@@ -122,7 +122,7 @@ let textareaCompany = document.querySelector(".rental-register__company textarea
 let btnRental = document.querySelector(".rental-page .btn-book");
 let notification = document.querySelectorAll(".rental-page .notification");
 let notiTextarea = document.querySelector(".rental-register__company textarea ~ .notification");
-let regex = /^[a-zA-Z ]+$/;
+let regex = /^[a-zA-Z\s]+$/;
 let regexPhone = /(0[3|5|7|8|9])+([0-9]{8})\b/;
 let regexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -146,8 +146,12 @@ inputCompany.forEach((element, index) => {
                 }else{
                     notification[index].innerHTML = "Nhập sai dữ liệu!!!";
                 }
-            }else if(regex.test(inputCompany[index].value)){
-                notification[index].classList.add("hidden");
+            }else{
+                if(regex.test(inputCompany[index].value)){
+                    notification[index].classList.add("hidden");
+                }else{
+                    notification[index].innerHTML = "Nhập sai dữ liệu!!!";
+                }
             }
         }else{
             notification[index].innerHTML = "Chưa nhập dữ liệu!!!";
