@@ -3,6 +3,10 @@
         display: flex;
         justify-content: space-between;
         column-gap: 5rem;
+
+        .notification{
+            color: red;
+        }
     }
 
     &-info{
